@@ -7,6 +7,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const PORT = process.env.PORT;
+const auditRoutes = require("./routes/audit");
 
 /* Configure parsers */
 app.use(bodyParser.urlencoded());
@@ -21,3 +22,4 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 /* Use routes */
+app.use("/api/audit", auditRoutes);
