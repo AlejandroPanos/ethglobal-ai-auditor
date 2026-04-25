@@ -1,7 +1,7 @@
 /* Generate controllers */
 exports.sendCode = async (req, res) => {
   try {
-    console.log("Code sent!");
+    res.status(200).json({ msg: "Code sent!" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message });
@@ -10,7 +10,7 @@ exports.sendCode = async (req, res) => {
 
 exports.retrieveAudit = async (req, res) => {
   try {
-    console.log("Audit retrieved!");
+    res.status(200).json({ msg: "Audit retrieved!" });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: error.message });
