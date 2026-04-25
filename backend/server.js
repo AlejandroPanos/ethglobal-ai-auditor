@@ -23,3 +23,8 @@ app.use(cors(corsOptions));
 
 /* Use routes */
 app.use("/api/audit", auditRoutes);
+
+/* Listen to the port */
+app.listen(PORT, () => {
+  console.log(`✅ App listening on port ${PORT}`);
+});
