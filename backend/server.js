@@ -6,7 +6,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const auditRoutes = require("./routes/audit");
 
 /* Configure parsers */
