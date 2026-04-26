@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 
 /* Generate controllers */
-exports.sendCode = async (req, res) => {
+exports.generateAudit = async (req, res) => {
   let filePath;
   try {
     const { code } = req.body;
