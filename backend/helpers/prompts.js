@@ -155,3 +155,6 @@ ${code}
 
 Analyze the contract thoroughly across all security categories defined in your instructions — including reentrancy, access control, arithmetic, logic, external interactions, upgradability, and gas optimization. Return your findings as a JSON object following the exact structure specified in your instructions, ensuring all fields are populated and findings are ordered by severity from Critical to Informational.`;
 };
+
+/* Exports */
+module.exports = { systemPrompt, userPrompt };
