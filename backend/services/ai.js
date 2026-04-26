@@ -141,4 +141,7 @@ const analyzeContract = async (code) => {
     },
     temperature: 0.3,
   });
+
+  const data = JSON.parse(message.content[0].text);
+  return data;
 };
