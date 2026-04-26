@@ -2,6 +2,8 @@
 const analyzeContract = require("../services/ai");
 const { generateReport } = require("../services/pdf");
 const { uploadReport, downloadReport, cleanupTempFile } = require("../services/storage");
+const fs = require("fs");
+const path = require("path");
 
 /* Generate controllers */
 exports.sendCode = async (req, res) => {
@@ -36,10 +38,27 @@ exports.sendCode = async (req, res) => {
 };
 
 exports.retrieveAudit = async (req, res) => {
+  let pdfPath;
   try {
-    res.status(200).json({ msg: "Audit retrieved!" });
+    const { rootHash } = req.params;
+    const outputPath = path.join(__dirname, "../tmp", `report-${Date.now()}.pdf`);
+
+    pdfPath = await downloadReport(rootHash, outputPath);
+
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Disposition", `attachment; filename="audit-report.pdf"`);
+
+    const fileStream = fs.createReadStream(pdfPath);
+    fileStream.pipe(res);
+
+    fileStream.on("end", () => cleanupTempFile(pdfPath));
+    fileStream.on("error", (err) => {
+      console.error("Stream error:", err);
+      cleanupTempFile(pdfPath);
+    });
   } catch (error) {
     console.error(error);
+    if (pdfPath) cleanupTempFile(pdfPath);
     res.status(500).json({ error: error.message });
   }
 };
