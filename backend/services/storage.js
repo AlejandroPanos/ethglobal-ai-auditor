@@ -41,3 +41,23 @@ const uploadReport = async (filePath) => {
     throw error;
   }
 };
+
+const downloadReport = async (rootHash, outputPath) => {
+  try {
+    // Initialize indexer
+    const indexer = new Indexer(process.env.ZG_INDEXER_URL);
+
+    // Check for errors
+    const err = await indexer.download(rootHash, outputPath, true);
+
+    if (err !== null) {
+      throw new Error(`Download error: ${err}`);
+    }
+
+    // Return the output path
+    return outputPath;
+  } catch (error) {
+    console.error("0G download error:", error);
+    throw error;
+  }
+};
