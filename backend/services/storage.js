@@ -61,3 +61,14 @@ const downloadReport = async (rootHash, outputPath) => {
     throw error;
   }
 };
+
+const cleanupTempFile = (filePath) => {
+  try {
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+      console.log("Temp file deleted:", filePath);
+    }
+  } catch (error) {
+    console.error("Cleanup error:", error);
+  }
+};
