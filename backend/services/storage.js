@@ -72,3 +72,6 @@ const cleanupTempFile = (filePath) => {
     console.error("Cleanup error:", error);
   }
 };
+
+/* Exports */
+module.exports = { uploadReport, downloadReport, cleanupTempFile };
