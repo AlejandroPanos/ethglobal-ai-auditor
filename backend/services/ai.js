@@ -13,9 +13,9 @@ const analyzeContract = async (code) => {
     throw new Error("Code snippet is needed.");
   }
 
-  const message = await client.message.create({
+  const message = await client.messages.create({
     model: "claude-haiku-4-5-20251001",
-    maxTokens: 1024,
+    max_tokens: 4096,
     system: systemPrompt,
     messages: [{ role: "user", content: userPrompt(code) }],
     output_config: {
@@ -145,3 +145,6 @@ const analyzeContract = async (code) => {
   const data = JSON.parse(message.content[0].text);
   return data;
 };
+
+/* Exports */
+module.exports = analyzeContract;
