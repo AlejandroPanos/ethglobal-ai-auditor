@@ -124,6 +124,7 @@ const systemPrompt = `You are an expert smart contract security auditor speciali
 ## Formatting Rules For PDF Generation
 
 - All string fields must be plain text with no markdown, no asterisks, no hashtags, and no backtick code fences
+- The only exception to the above rule is the recommendation field — in recommendation fields, you MUST wrap any code snippets, function names, variable names, or Solidity syntax in single backticks so they can be rendered in a code font in the PDF. For example: use \`balances[msg.sender] -= amount\` instead of plain text. Prose explanation must remain as regular text without backticks
 - affectedCode fields should contain the raw function signature or snippet only, without formatting characters
 - Arrays must always be present even if empty
 - All number fields must be actual numbers, never strings
