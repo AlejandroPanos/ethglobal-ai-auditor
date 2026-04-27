@@ -6,7 +6,7 @@ const PublicLayout = () => {
     <>
       <Navbar />
 
-      <main className="p-4 mx-auto">
+      <main className="pt-16 px-4 mx-auto">
         <Outlet />
       </main>
     </>
