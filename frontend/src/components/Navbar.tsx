@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
-import { NavMenu } from "@/components/nav-menu";
-import { NavigationSheet } from "@/components/navigation-sheet";
+// import { NavMenu } from "@/components/nav-menu";
+// import { NavigationSheet } from "@/components/navigation-sheet";
 import { Link } from "react-router";
 
 const Navbar = () => {
@@ -13,8 +13,8 @@ const Navbar = () => {
         {/* Desktop Menu */}
         {/* <NavMenu className="hidden md:block" /> */}
 
-        <div className="flex items-center gap-3">
-          <Button className="hidden sm:inline-flex" variant="outline" asChild>
+        <div className="flex items-center gap-1.5 md:gap-3">
+          <Button className="sm:inline-flex" variant="outline" asChild>
             <Link to="/">Audit</Link>
           </Button>
           <Button asChild>
@@ -22,9 +22,9 @@ const Navbar = () => {
           </Button>
 
           {/* Mobile Menu */}
-          <div className="md:hidden">
+          {/* <div className="md:hidden">
             <NavigationSheet />
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>
