@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 
 export default function Hero() {
   return (
-    <div className="flex mt-20 items-center justify-center px-6">
+    <div className="flex mt-12 items-center justify-center px-6">
       <div className="max-w-3xl text-center">
         <Badge asChild className="rounded-full border-border p-3" variant="secondary">
           <span>
