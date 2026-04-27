@@ -1,9 +1,11 @@
-import Navbar from "./components/Navbar";
+import { createBrowserRouter, RouterProvider } from "react-router";
+
+const router = createBrowserRouter([]);
 
 const App = () => {
   return (
     <>
-      <Navbar />
+      <RouterProvider router={router} />
     </>
   );
 };
