@@ -1,0 +1,16 @@
+import { Outlet } from "react-router";
+import Navbar from "@/components/Navbar";
+
+const PublicLayout = () => {
+  return (
+    <>
+      <Navbar />
+
+      <main className="p-4 mx-auto">
+        <Outlet />
+      </main>
+    </>
+  );
+};
+
+export default PublicLayout;
