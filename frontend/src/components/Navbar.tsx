@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
 import { NavMenu } from "@/components/nav-menu";
 import { NavigationSheet } from "@/components/navigation-sheet";
+import { Link } from "react-router";
 
 const Navbar = () => {
   return (
@@ -10,13 +11,15 @@ const Navbar = () => {
         <Logo />
 
         {/* Desktop Menu */}
-        <NavMenu className="hidden md:block" />
+        {/* <NavMenu className="hidden md:block" /> */}
 
         <div className="flex items-center gap-3">
-          <Button className="hidden sm:inline-flex" variant="outline">
-            Sign In
+          <Button className="hidden sm:inline-flex" variant="outline" asChild>
+            <Link to="/">Audit</Link>
           </Button>
-          <Button>Get Started</Button>
+          <Button asChild>
+            <Link to="/download">Reports</Link>
+          </Button>
 
           {/* Mobile Menu */}
           <div className="md:hidden">
