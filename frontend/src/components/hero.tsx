@@ -1,6 +1,5 @@
-import { ArrowUpRight, CirclePlay, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
