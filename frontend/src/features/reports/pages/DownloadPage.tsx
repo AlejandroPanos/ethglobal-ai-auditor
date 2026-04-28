@@ -1,7 +1,9 @@
+import Hero from "@/components/hero";
+
 const DownloadPage = () => {
   return (
     <>
-      <h1>Download Page</h1>
+      <Hero />
     </>
   );
 };
