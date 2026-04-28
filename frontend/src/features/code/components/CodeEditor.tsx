@@ -48,10 +48,15 @@ const CodeEditor = () => {
           </div>
 
           <div className="w-full flex flex-col items-start gap-8 my-8">
+            <div className="w-full flex items-center justify-between">
+              <h2 className="font-medium text-xl">Audit Report</h2>
+              <Button>New Audit</Button>
+            </div>
+
             <div className="w-full flex flex-col items-start gap-8 p-4 rounded-xl border border-border">
               <div className="w-full flex items-center justify-between gap-4">
                 <div className="flex flex-col items-start">
-                  <h2 className="font-medium text-lg">Contract Audit</h2>
+                  <h3 className="font-medium text-lg">Contract Audit</h3>
                   <p className="text-sm font-light text-foreground/60">
                     Audited on 28th of April 2026
                   </p>
@@ -64,7 +69,7 @@ const CodeEditor = () => {
               <hr className="w-full border-border" />
 
               <div className="w-full flex flex-col items-start">
-                <h2 className="font-medium text-lg">Root Hash</h2>
+                <h3 className="font-medium text-lg">Root Hash</h3>
                 <p className="text-sm font-light text-foreground/60">
                   This is the root hash of yout transaction. Use it to retrieve your PDF audit.
                 </p>
@@ -82,12 +87,12 @@ const CodeEditor = () => {
             <div className="w-full flex flex-col items-start gap-4">
               <div className="flex items-center justify-center gap-2">
                 <Shield className="size-6 text-green-600" />
-                <h2 className="font-medium text-lg">Findings</h2>
+                <h3 className="font-medium text-lg">Findings</h3>
               </div>
 
               <div className="w-full flex flex-col items-start gap-8 p-4 rounded-xl border border-border">
                 <div className="flex flex-col items-start gap-2">
-                  <h2 className="font-medium text-lg">Audit Rating</h2>
+                  <h3 className="font-medium text-lg">Audit Rating</h3>
                   <span className="px-2 py-1 rounded-lg border border-red-600 bg-red-900/40 text-sm font-semibold text-red-600">
                     Critical Risk
                   </span>
@@ -96,7 +101,7 @@ const CodeEditor = () => {
                 <hr className="w-full border-border" />
 
                 <div className="flex flex-col items-start gap-1">
-                  <h2 className="font-medium text-lg">Audit Summary</h2>
+                  <h3 className="font-medium text-lg">Audit Summary</h3>
                   <p className="text-sm font-light text-foreground/60">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim quidem nisi
                     recusandae odio quaerat dolor quam voluptate nulla perferendis nemo
