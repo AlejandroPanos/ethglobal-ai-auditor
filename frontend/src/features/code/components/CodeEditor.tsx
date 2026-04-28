@@ -39,7 +39,13 @@ const CodeEditor = () => {
               title="Smart Contract Code"
               description="Paste your Solidity code below."
             />
-            <Button onClick={() => handleLoadExample()}>Load Example</Button>
+            <Button
+              onClick={() => handleLoadExample()}
+              disabled={auditMutation.isPending}
+              className="disabled:opacity-60 cursor-not-allowed"
+            >
+              Load Example
+            </Button>
           </div>
 
           <div className="w-full flex flex-col items-center justify-center gap-6">
@@ -59,8 +65,13 @@ const CodeEditor = () => {
                 }}
               />
             </div>
-            <Button onClick={handleMutation} size="lg">
-              <Sparkles /> Start Audit
+            <Button
+              onClick={handleMutation}
+              size="lg"
+              disabled={auditMutation.isPending}
+              className="disabled:opacity-60 cursor-not-allowed"
+            >
+              <Sparkles /> {auditMutation.isPending ? "Auditing..." : "Start Audit"}
             </Button>
           </div>
 
