@@ -2,7 +2,7 @@ import { useState } from "react";
 import Banner from "@/components/Banner";
 import { Button } from "@/components/ui/button";
 import Editor from "@monaco-editor/react";
-import { FileBracesCorner, Sparkles, Copy } from "lucide-react";
+import { FileBracesCorner, Sparkles, Copy, Shield } from "lucide-react";
 import { EXAMPLE_CONTRACT } from "@/constants/exampleContract";
 
 const CodeEditor = () => {
@@ -47,7 +47,7 @@ const CodeEditor = () => {
             </Button>
           </div>
 
-          <div className="w-full flex flex-col items-start gap-4 mt-8">
+          <div className="w-full flex flex-col items-start gap-8 my-8">
             <div className="w-full flex flex-col items-start gap-8 p-4 rounded-xl border border-border">
               <div className="w-full flex items-center justify-between gap-4">
                 <div className="flex flex-col items-start">
@@ -77,6 +77,11 @@ const CodeEditor = () => {
                   </button>
                 </div>
               </div>
+            </div>
+
+            <div className="flex items-center justify-center gap-2">
+              <Shield className="size-6 text-green-600" />
+              <h2 className="font-medium text-lg">Findings</h2>
             </div>
           </div>
         </div>
