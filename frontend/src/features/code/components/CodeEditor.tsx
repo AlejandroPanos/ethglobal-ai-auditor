@@ -11,7 +11,7 @@ const CodeEditor = () => {
   const [code, setCode] = useState("");
 
   const auditMutation = useMutation({
-    mutationFn: () => generateAudit(code),
+    mutationFn: (code: string) => generateAudit(code),
     onSuccess: (data) => {
       console.log(data);
     },
@@ -21,7 +21,8 @@ const CodeEditor = () => {
   });
 
   const handleMutation = () => {
-    auditMutation.mutate();
+    if (!code.trim()) return;
+    auditMutation.mutate(code);
   };
 
   const handleLoadExample = () => {
