@@ -12,13 +12,17 @@ const CodeEditor = () => {
 
   const auditMutation = useMutation({
     mutationFn: () => generateAudit(code),
-    onSuccess: () => {
-      console.log("Success");
+    onSuccess: (data) => {
+      console.log(data);
     },
     onError: (error) => {
       console.error(error);
     },
   });
+
+  const handleMutation = () => {
+    auditMutation.mutate();
+  };
 
   const handleLoadExample = () => {
     setCode(EXAMPLE_CONTRACT);
@@ -54,7 +58,7 @@ const CodeEditor = () => {
                 }}
               />
             </div>
-            <Button size="lg">
+            <Button onClick={handleMutation} size="lg">
               <Sparkles /> Start Audit
             </Button>
           </div>
