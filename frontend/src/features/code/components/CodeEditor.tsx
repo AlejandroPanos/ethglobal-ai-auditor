@@ -79,9 +79,34 @@ const CodeEditor = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-center gap-2">
-              <Shield className="size-6 text-green-600" />
-              <h2 className="font-medium text-lg">Findings</h2>
+            <div className="w-full flex flex-col items-start gap-4">
+              <div className="flex items-center justify-center gap-2">
+                <Shield className="size-6 text-green-600" />
+                <h2 className="font-medium text-lg">Findings</h2>
+              </div>
+
+              <div className="w-full flex flex-col items-start gap-8 p-4 rounded-xl border border-border">
+                <div className="flex flex-col items-start gap-2">
+                  <h2 className="font-medium text-lg">Audit Rating</h2>
+                  <span className="px-2 py-1 rounded-lg border border-red-600 bg-red-900/40 text-sm font-semibold text-red-600">
+                    Critical Risk
+                  </span>
+                </div>
+
+                <hr className="w-full border-border" />
+
+                <div className="flex flex-col items-start gap-1">
+                  <h2 className="font-medium text-lg">Audit Summary</h2>
+                  <p className="text-sm font-light text-foreground/60">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim quidem nisi
+                    recusandae odio quaerat dolor quam voluptate nulla perferendis nemo
+                    reprehenderit natus, quae nihil corporis corrupti voluptatum fugit suscipit
+                    iusto. Inventore veritatis quo aliquam natus, ex culpa perspiciatis nesciunt
+                    illo odit praesentium voluptate laboriosam id quasi dolores totam atque, amet
+                    quidem, architecto velit deserunt! Omnis perspiciatis fugiat neque sequi nisi!
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
