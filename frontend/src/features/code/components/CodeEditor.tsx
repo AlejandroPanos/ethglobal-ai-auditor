@@ -2,11 +2,23 @@ import { useState } from "react";
 import Banner from "@/components/Banner";
 import { Button } from "@/components/ui/button";
 import Editor from "@monaco-editor/react";
+import { useMutation } from "@tanstack/react-query";
+import { generateAudit } from "@/helpers/helpers";
 import { FileBracesCorner, Sparkles, Copy, Shield } from "lucide-react";
 import { EXAMPLE_CONTRACT } from "@/constants/exampleContract";
 
 const CodeEditor = () => {
   const [code, setCode] = useState("");
+
+  const auditMutation = useMutation({
+    mutationFn: () => generateAudit(code),
+    onSuccess: () => {
+      console.log("Success");
+    },
+    onError: (error) => {
+      console.error(error);
+    },
+  });
 
   const handleLoadExample = () => {
     setCode(EXAMPLE_CONTRACT);
@@ -62,7 +74,7 @@ const CodeEditor = () => {
                   </p>
                 </div>
                 <div className="flex shrink-0 p-2 items-center justify-center rounded-xl bg-white/10">
-                  <p className="text-white font-semibold text-xl">90</p>
+                  <p className="text-white font-semibold text-xl">20</p>
                 </div>
               </div>
 
