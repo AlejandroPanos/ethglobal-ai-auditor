@@ -1,4 +1,5 @@
 import Hero from "@/components/hero";
+import RetrieveForm from "../components/RetrieveForm";
 import { Zap } from "lucide-react";
 
 const DownloadPage = () => {
@@ -16,6 +17,7 @@ const DownloadPage = () => {
         title={title}
         text="Enter your transaction root hash to access and download your smart contract audit report. Reports are permanently stored and can be retrieved at any time."
       />
+      <RetrieveForm />
     </>
   );
 };
