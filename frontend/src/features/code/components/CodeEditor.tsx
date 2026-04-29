@@ -14,9 +14,8 @@ const CodeEditor = () => {
 
   const auditMutation = useMutation({
     mutationFn: (code: string) => generateAudit(code),
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success("Report generated successfully.", { position: "top-right" });
-      console.log(data);
     },
     onError: (error) => {
       toast.error("Error generating report.", { position: "top-right" });

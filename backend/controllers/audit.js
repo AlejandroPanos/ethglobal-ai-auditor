@@ -25,10 +25,8 @@ exports.generateAudit = async (req, res) => {
     data.disclaimer.generatedAt = new Date().toISOString();
 
     filePath = await generateReport(data);
-    console.log(`File created at ${filePath}`);
 
     const rootHash = await uploadReport(filePath);
-    console.log(rootHash);
 
     if (!rootHash) {
       return res.status(400).json({ error: "No root hash generated." });
