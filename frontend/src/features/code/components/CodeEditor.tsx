@@ -86,11 +86,13 @@ const CodeEditor = () => {
                 <div className="flex flex-col items-start">
                   <h3 className="font-medium text-lg">Contract Audit</h3>
                   <p className="text-sm font-light text-foreground/60">
-                    Audited on 28th of April 2026
+                    Audited on {auditMutation.data?.data?.disclaimer?.generatedAt}
                   </p>
                 </div>
                 <div className="flex shrink-0 p-2 items-center justify-center rounded-xl bg-white/10">
-                  <p className="text-white font-semibold text-xl">20</p>
+                  <p className="text-white font-semibold text-xl">
+                    {auditMutation.data?.data?.securityScore?.score}
+                  </p>
                 </div>
               </div>
 
@@ -103,7 +105,7 @@ const CodeEditor = () => {
                 </p>
                 <div className="w-full flex items-center gap-2 rounded-lg border border-border p-2 mt-4">
                   <span className="flex-1 text-xs font-light font-mono text-foreground/70 truncate">
-                    0x12345
+                    {auditMutation.data?.rootHash}
                   </span>
                   <button className="shrink-0 text-foreground/40 hover:text-foreground/70 transition-colors">
                     <Copy className="size-4" />
@@ -122,7 +124,7 @@ const CodeEditor = () => {
                 <div className="flex flex-col items-start gap-2">
                   <h3 className="font-medium text-lg">Audit Rating</h3>
                   <span className="px-2 py-1 rounded-lg border border-red-600 bg-red-900/40 text-sm font-semibold text-red-600">
-                    Critical Risk
+                    {auditMutation.data?.data?.securityScore?.rating}
                   </span>
                 </div>
 
@@ -131,12 +133,7 @@ const CodeEditor = () => {
                 <div className="flex flex-col items-start gap-1">
                   <h3 className="font-medium text-lg">Audit Summary</h3>
                   <p className="text-sm font-light text-foreground/60">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim quidem nisi
-                    recusandae odio quaerat dolor quam voluptate nulla perferendis nemo
-                    reprehenderit natus, quae nihil corporis corrupti voluptatum fugit suscipit
-                    iusto. Inventore veritatis quo aliquam natus, ex culpa perspiciatis nesciunt
-                    illo odit praesentium voluptate laboriosam id quasi dolores totam atque, amet
-                    quidem, architecto velit deserunt! Omnis perspiciatis fugiat neque sequi nisi!
+                    {auditMutation.data?.data?.securityScore?.summary}
                   </p>
                 </div>
               </div>
