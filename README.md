@@ -148,27 +148,61 @@ ai_auditor/
 ├── backend/
 │   ├── controllers/
 │   │   └── audit.js          # Request orchestration
+│   ├── helpers/
+│   │   └── prompts.js        # AI system and user prompts
 │   ├── routes/
-│   │   ├── audit.js          # API route definitions
-│   │   └── health.js         # Health check route
+│   │   └── audit.js          # API route definitions
 │   ├── services/
 │   │   ├── ai.js             # Anthropic Claude API integration
 │   │   ├── pdf.js            # PDFKit report generation
 │   │   └── storage.js        # 0G upload and download logic
 │   ├── tmp/                  # Temporary PDF buffer (auto-cleaned)
-│   ├── app.js
+│   ├── .env
+│   ├── .gitignore
+│   ├── package.json
 │   └── server.js
 ├── frontend/
+│   ├── public/
 │   ├── src/
-│   │   ├── components/       # Global UI components
-│   │   ├── constants/        # Example contract and static data
+│   │   ├── assets/
+│   │   ├── components/
+│   │   │   ├── customized/   # Custom shadcn overrides
+│   │   │   ├── ui/           # shadcn UI components
+│   │   │   ├── Banner.tsx
+│   │   │   ├── features.tsx
+│   │   │   ├── hero.tsx
+│   │   │   ├── logo.tsx
+│   │   │   ├── nav-menu.tsx
+│   │   │   ├── Navbar.tsx
+│   │   │   └── navigation-sheet.tsx
+│   │   ├── constants/
+│   │   │   └── exampleContract.ts
 │   │   ├── features/
 │   │   │   ├── code/         # Audit submission feature
 │   │   │   └── reports/      # Report retrieval feature
-│   │   ├── helpers/          # Axios API helpers and utility functions
-│   │   ├── layouts/          # Page layout components
-│   │   └── pages/            # Route-level page components
-│   └── index.html
+│   │   ├── helpers/
+│   │   │   └── helpers.ts    # Axios API helpers and utility functions
+│   │   ├── layouts/
+│   │   │   └── PublicLayout.tsx
+│   │   ├── lib/
+│   │   │   └── utils.ts
+│   │   ├── pages/
+│   │   │   └── HomePage.tsx
+│   │   ├── App.tsx
+│   │   ├── index.css
+│   │   └── main.tsx
+│   ├── .env.local
+│   ├── .env.production
+│   ├── .gitignore
+│   ├── components.json
+│   ├── eslint.config.js
+│   ├── package.json
+│   ├── tsconfig.app.json
+│   ├── tsconfig.json
+│   ├── tsconfig.node.json
+│   ├── vercel.json
+│   └── vite.config.ts
+└── README.md
 ```
 
 ---
@@ -179,7 +213,7 @@ ai_auditor/
 | ------ | ---------------------- | -------------------------------------------------------------------------------------------------------- |
 | `POST` | `/api/audit`           | Submits Solidity code, runs AI analysis, generates PDF, uploads to 0G, returns report JSON and root hash |
 | `GET`  | `/api/audit/:rootHash` | Downloads the audit PDF from 0G by root hash and streams it to the client                                |
-| `GET`  | `/api/health`          | Health check                                                                                             |
+|  |
 
 ---
 
