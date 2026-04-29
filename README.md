@@ -213,7 +213,6 @@ ai_auditor/
 | ------ | ---------------------- | -------------------------------------------------------------------------------------------------------- |
 | `POST` | `/api/audit`           | Submits Solidity code, runs AI analysis, generates PDF, uploads to 0G, returns report JSON and root hash |
 | `GET`  | `/api/audit/:rootHash` | Downloads the audit PDF from 0G by root hash and streams it to the client                                |
-|  |
 
 ---
 
