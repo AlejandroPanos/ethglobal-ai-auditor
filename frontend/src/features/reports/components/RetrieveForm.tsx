@@ -1,8 +1,20 @@
 import Banner from "@/components/Banner";
 import { FileSearchCorner } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import { retrieveAudit } from "@/helpers/helpers";
 import InputWithButtonDemo from "@/components/customized/input/input-06";
 
 const RetrieveForm = () => {
+  const downloadMutation = useMutation({
+    mutationFn: (rootHash: string) => retrieveAudit(rootHash),
+    onSuccess: (data) => {
+      console.log(data);
+    },
+    onError: (error) => {
+      console.error(error);
+    },
+  });
+
   return (
     <>
       <div className="w-full mx-auto max-w-3xl flex flex-col items-start gap-4 p-6 border border-border rounded-xl mt-12">
