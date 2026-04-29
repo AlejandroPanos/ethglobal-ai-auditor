@@ -49,7 +49,7 @@ const RetrieveForm = () => {
               placeholder="0x123..."
               type="text"
             />
-            <Button onClick={handleDownload} className="shadow">
+            <Button type="button" onClick={handleDownload} className="shadow">
               Find Report
             </Button>
           </div>
