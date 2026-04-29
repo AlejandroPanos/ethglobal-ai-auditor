@@ -123,6 +123,7 @@ Claude was used during the development of this project for:
 
 - **Initial planning** — mapping out the full architecture, API routes, service structure, and technology choices before writing any code
 - **Specific technical questions** — resolving targeted implementation questions around the 0G SDK integration, PDFKit rendering, Tailwind v4 configuration, and TanStack Query patterns
+- **README structure and writing** — ideating the structure and drafting the content of this README file
 
 All core implementation, debugging, and architectural decisions were made by the developer.
 
