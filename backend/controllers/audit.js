@@ -17,7 +17,6 @@ exports.generateAudit = async (req, res) => {
 
     const data = await analyzeContract(code);
 
-    // Override AI-generated dates with actual JS dates
     data.overview.date = new Date().toLocaleDateString("en-GB", {
       day: "numeric",
       month: "long",
