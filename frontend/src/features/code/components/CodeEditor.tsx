@@ -3,7 +3,8 @@ import Banner from "@/components/Banner";
 import { Button } from "@/components/ui/button";
 import Editor from "@monaco-editor/react";
 import { useMutation } from "@tanstack/react-query";
-import { generateAudit } from "@/helpers/helpers";
+import { generateAudit, getRatingStyles } from "@/helpers/helpers";
+import { format } from "date-fns";
 import { FileBracesCorner, Sparkles, Copy, Shield } from "lucide-react";
 import { EXAMPLE_CONTRACT } from "@/constants/exampleContract";
 
@@ -28,6 +29,10 @@ const CodeEditor = () => {
   const handleLoadExample = () => {
     setCode(EXAMPLE_CONTRACT);
   };
+
+  const formattedDate = auditMutation.data?.data?.overview?.date
+    ? format(new Date(auditMutation.data.data.overview.date), "'Audited on' MMMM do yyyy")
+    : null;
 
   return (
     <>
@@ -85,9 +90,7 @@ const CodeEditor = () => {
               <div className="w-full flex items-center justify-between gap-4">
                 <div className="flex flex-col items-start">
                   <h3 className="font-medium text-lg">Contract Audit</h3>
-                  <p className="text-sm font-light text-foreground/60">
-                    Audited on {auditMutation.data?.data?.disclaimer?.generatedAt}
-                  </p>
+                  <p className="text-sm font-light text-foreground/60">{formattedDate}</p>
                 </div>
                 <div className="flex shrink-0 p-2 items-center justify-center rounded-xl bg-white/10">
                   <p className="text-white font-semibold text-xl">
@@ -123,7 +126,9 @@ const CodeEditor = () => {
               <div className="w-full flex flex-col items-start gap-8 p-4 rounded-xl border border-border">
                 <div className="flex flex-col items-start gap-2">
                   <h3 className="font-medium text-lg">Audit Rating</h3>
-                  <span className="px-2 py-1 rounded-lg border border-red-600 bg-red-900/40 text-sm font-semibold text-red-600">
+                  <span
+                    className={`px-2 py-1 rounded-lg border text-sm font-semibold ${getRatingStyles(auditMutation.data?.data?.securityScore?.rating ?? "")}`}
+                  >
                     {auditMutation.data?.data?.securityScore?.rating}
                   </span>
                 </div>
