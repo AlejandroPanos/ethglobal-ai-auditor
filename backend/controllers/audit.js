@@ -16,6 +16,15 @@ exports.generateAudit = async (req, res) => {
     }
 
     const data = await analyzeContract(code);
+
+    // Override AI-generated dates with actual JS dates
+    data.overview.date = new Date().toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+    data.disclaimer.generatedAt = new Date().toISOString();
+
     filePath = await generateReport(data);
     console.log(`File created at ${filePath}`);
 
