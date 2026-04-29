@@ -23,7 +23,9 @@ const RetrieveForm = () => {
       window.URL.revokeObjectURL(url);
     },
     onError: () => {
-      toast.error("Failed to retrieve report. Check your root hash and try again.");
+      toast.error("Failed to retrieve report. Check your root hash and try again.", {
+        position: "bottom-right",
+      });
     },
   });
 

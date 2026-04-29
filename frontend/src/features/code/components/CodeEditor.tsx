@@ -15,10 +15,10 @@ const CodeEditor = () => {
   const auditMutation = useMutation({
     mutationFn: (code: string) => generateAudit(code),
     onSuccess: () => {
-      toast.success("Report generated successfully.", { position: "top-right" });
+      toast.success("Report generated successfully.", { position: "bottom-right" });
     },
     onError: (error) => {
-      toast.error("Error generating report.", { position: "top-right" });
+      toast.error("Error generating report.", { position: "bottom-right" });
       console.error(error);
     },
   });
@@ -39,7 +39,7 @@ const CodeEditor = () => {
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(auditMutation.data?.rootHash ?? "");
-    toast.success("Copied root hash to clipboard.", { position: "top-right" });
+    toast.success("Copied root hash to clipboard.", { position: "bottom-right" });
   };
 
   const formattedDate = auditMutation.data?.data?.overview?.date
