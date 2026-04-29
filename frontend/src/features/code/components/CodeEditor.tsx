@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Banner from "@/components/Banner";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import Editor from "@monaco-editor/react";
 import { useMutation } from "@tanstack/react-query";
 import { generateAudit, getRatingStyles } from "@/helpers/helpers";
@@ -14,9 +15,11 @@ const CodeEditor = () => {
   const auditMutation = useMutation({
     mutationFn: (code: string) => generateAudit(code),
     onSuccess: (data) => {
+      toast.success("Report generated successfully.", { position: "top-right" });
       console.log(data);
     },
     onError: (error) => {
+      toast.error("Error generating report.", { position: "top-right" });
       console.error(error);
     },
   });
@@ -37,6 +40,7 @@ const CodeEditor = () => {
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(auditMutation.data?.rootHash ?? "");
+    toast.success("Copied root hash to clipboard.", { position: "top-right" });
   };
 
   const formattedDate = auditMutation.data?.data?.overview?.date
