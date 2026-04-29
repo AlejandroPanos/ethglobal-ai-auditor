@@ -35,6 +35,10 @@ const CodeEditor = () => {
     setCode("");
   };
 
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(auditMutation.data?.rootHash ?? "");
+  };
+
   const formattedDate = auditMutation.data?.data?.overview?.date
     ? format(new Date(auditMutation.data.data.overview.date), "'Audited on' MMMM do yyyy")
     : null;
@@ -119,7 +123,7 @@ const CodeEditor = () => {
                       {auditMutation.data?.rootHash}
                     </span>
                     <button className="shrink-0 text-foreground/40 hover:text-foreground/70 transition-colors">
-                      <Copy className="size-4" />
+                      <Copy onClick={handleCopy} className="size-4" />
                     </button>
                   </div>
                 </div>
