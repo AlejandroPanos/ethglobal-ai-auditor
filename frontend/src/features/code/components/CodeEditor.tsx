@@ -42,7 +42,7 @@ const CodeEditor = () => {
             <Button
               onClick={() => handleLoadExample()}
               disabled={auditMutation.isPending}
-              className="disabled:opacity-60 cursor-not-allowed"
+              className="disabled:opacity-60 disabled:cursor-not-allowed"
             >
               Load Example
             </Button>
@@ -69,7 +69,7 @@ const CodeEditor = () => {
               onClick={handleMutation}
               size="lg"
               disabled={auditMutation.isPending}
-              className="disabled:opacity-60 cursor-not-allowed"
+              className="disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <Sparkles /> {auditMutation.isPending ? "Auditing..." : "Start Audit"}
             </Button>
