@@ -1,19 +1,36 @@
+import { useState } from "react";
 import Banner from "@/components/Banner";
 import { FileSearchCorner } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
+import { toast } from "sonner";
 import { retrieveAudit } from "@/helpers/helpers";
-import InputWithButtonDemo from "@/components/customized/input/input-06";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const RetrieveForm = () => {
+  const [rootHash, setRootHash] = useState("");
+
   const downloadMutation = useMutation({
     mutationFn: (rootHash: string) => retrieveAudit(rootHash),
-    onSuccess: (data) => {
-      console.log(data);
+    onSuccess: (blob) => {
+      const url = window.URL.createObjectURL(new Blob([blob]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "audit-report.pdf");
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
     },
-    onError: (error) => {
-      console.error(error);
+    onError: () => {
+      toast.error("Failed to retrieve report. Check your root hash and try again.");
     },
   });
+
+  const handleDownload = () => {
+    if (!rootHash.trim()) return;
+    downloadMutation.mutate(rootHash);
+  };
 
   return (
     <>
@@ -25,7 +42,17 @@ const RetrieveForm = () => {
         />
 
         <form action="" className="w-full">
-          <InputWithButtonDemo />
+          <div className="flex w-full items-center gap-2">
+            <Input
+              onChange={(e) => setRootHash(e.target.value)}
+              value={rootHash}
+              placeholder="0x123..."
+              type="text"
+            />
+            <Button onClick={handleDownload} className="shadow">
+              Find Report
+            </Button>
+          </div>
         </form>
 
         <span className="text-xs font-light text-foreground/60 -mt-2">
