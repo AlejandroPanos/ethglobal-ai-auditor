@@ -57,7 +57,7 @@ const RetrieveForm = () => {
           </div>
         </form>
 
-        <span className="text-xs font-light text-foreground/60 -mt-2">
+        <span className="text-xs font-light text-foreground/60 -mt-2 break-all">
           Example: 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
         </span>
       </div>
